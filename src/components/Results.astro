@@ -1,0 +1,110 @@
+---
+const studentStats = [
+  {
+    logo: "/imgs/Memhir_LogoType_01-05.png",
+    stats: [
+      { value: "~24%", label: "Yearly GPA increase." },
+      { value: "~52%", label: "Reduction in study time." },
+    ],
+  },
+  {
+    logo: "/imgs/Memhir_LogoType_01-05.png",
+    stats: [
+      { value: "43%", label: "Yearly exit exam pass rate increase." },
+      { value: "32%", label: "Reduction in tutoring costs." },
+    ],
+  },
+  {
+    logo: "/imgs/Memhir_LogoType_01-05.png",
+    stats: [
+      { value: "2x", label: "Increase in exam scores." },
+      { value: "1.5x", label: "Follow-up from parents." },
+    ],
+  },
+];
+---
+
+<section class="relative py-16 lg:py-32">
+  <div class="mx-auto px-8 md:px-12 lg:px-24">
+    <div class="mb-16 space-y-4">
+      <p class="text-gray-400 text-sm tracking-wider uppercase">Results</p>
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+      >
+        <h2
+          class="text-2xl md:text-4xl lg:text-5xl text-white font-light max-w-2xl"
+        >
+          Over 1000+ students use METT to master their exams and guide their
+          studying
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      {
+        studentStats.map((customer) => (
+          <div class="bg-gray-900/50 rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-colors">
+            <img
+              src={customer.logo}
+              alt="Company logo"
+              class="h-8 mb-12 brightness-200"
+            />
+            <div class="space-y-8">
+              {customer.stats.map((stat) => (
+                <div>
+                  <div class="text-4xl font-light text-yellow-400 mb-2">
+                    {stat.value}
+                  </div>
+                  <div class="text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stat-item {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .stat-item.animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        (entry.target as HTMLElement).style.animationDelay = `${index * 0.2}s`;
+        entry.target.classList.add("animate");
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".stat-item").forEach((item) => {
+    observer.observe(item);
+  });
+</script>

@@ -1,0 +1,91 @@
+---
+
+---
+
+<header class="fixed w-full z-50 backdrop-blur-md">
+  <nav class="relative mx-auto py-4 px-8 md:px-12 lg:px-24 md:py-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img
+            src="/imgs/Memhir_LogoType_01-05.png"
+            alt="METT Logo"
+            class="h-12 md:h-16 w-auto"
+          />
+        </a>
+      </div>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden inline-flex items-center p-2 text-white hover:bg-white/10 rounded-lg"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            id="menu-icon"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <div
+        id="mobile-menu"
+        class="hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md md:hidden p-4 mt-2"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="/#features"
+            class="text-gray-300 hover:text-white transition-colors">Features</a
+          >
+          <a
+            href="/pricing"
+            class="text-gray-300 hover:text-white transition-colors">Pricing</a
+          >
+          <a
+            href="/coming-soon"
+            class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors backdrop-blur-sm text-center"
+          >
+            Start Now
+          </a>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-32 lg:space-x-48">
+        <a
+          href="/#features"
+          class="text-gray-300 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform hover:after:scale-x-100"
+          >Features</a
+        >
+        <a
+          href="/pricing"
+          class="text-gray-300 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform hover:after:scale-x-100"
+          >Pricing</a
+        >
+      </div>
+
+      <div class="hidden md:flex items-center gap-16">
+        <a
+          href="/signup"
+          class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors backdrop-blur-sm"
+        >
+          Start Now
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuToggle?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+</script>
