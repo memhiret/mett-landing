@@ -7,9 +7,18 @@ import Results from "../components/Results.astro";
 import Value from "../components/Value.astro";
 import CTA from "../components/CTA.astro";
 import Footer from "../components/Footer.astro";
+
+const pageTitle = "METT - Personalized Test-Path and Study-Guides";
+const pageDescription =
+  "Transform your test preparation with METT's personalized study guides and adaptive learning paths. Get better results with customized test preparation strategies.";
 ---
 
-<Layout title="METT - Personalized Test-Path and Study-Guides">
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  image="/og.jpg"
+  type="website"
+>
   <Navbar />
   <Hero />
   <Features />
